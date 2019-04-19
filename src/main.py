@@ -19,6 +19,7 @@ parser.add_argument('--item_update_mode', type=str, default='plus_transform',
                     help='how to update item at the end of each hop')
 parser.add_argument('--using_all_hops', type=bool, default=True,
                     help='whether using outputs of all hops or just the last hop when making prediction')
+parser.add_argument('--use_cuda', type=bool, default=True, help='whether to use gpu')
 
 '''
 # default settings for Book-Crossing

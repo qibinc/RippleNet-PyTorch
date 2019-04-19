@@ -1,9 +1,11 @@
 # RippleNet
 
-This repository is the implementation of RippleNet ([arXiv](https://arxiv.org/abs/1803.03467)):
+This repository is a **PyTorch** implementation of RippleNet ([arXiv](https://arxiv.org/abs/1803.03467)):
 > RippleNet: Propagating User Preferences on the Knowledge Graph for Recommender Systems  
 Hongwei Wang, Fuzheng Zhang, Jialin Wang, Miao Zhao, Wenjie Li, Xing Xie, Minyi Guo  
 The 27th ACM International Conference on Information and Knowledge Management (CIKM 2018)
+
+For the authors' official TensorFlow implementation, see [hwwang55/RippleNet](https://github.com/hwwang55/RippleNet).
 
 ![](https://github.com/hwwang55/RippleNet/blob/master/framework.jpg)
 
@@ -28,10 +30,10 @@ Ripple Network overcomes the limitations of existing embedding-based and path-ba
 
 
 ### Required packages
-The code has been tested running under Python 3.6.5, with the following packages installed (along with their dependencies):
-- tensorflow-gpu == 1.4.0
-- numpy == 1.14.5
-- sklearn == 0.19.1
+The code has been tested running under Python 3.6, with the following packages installed (along with their dependencies):
+- pytorch >= 1.0
+- numpy >= 1.14.5
+- sklearn >= 0.19.1
 
 
 ### Running the code
