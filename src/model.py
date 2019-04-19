@@ -14,7 +14,7 @@ class RippleNet(nn.Module):
 
         self.entity_emb = nn.Embedding(self.n_entity, self.dim)
         self.relation_emb = nn.Embedding(self.n_relation, self.dim * self.dim)
-        self.transform_matrix = nn.Linear(self.dim, self.dim)
+        self.transform_matrix = nn.Linear(self.dim, self.dim, bias=False)
         self.criterion = nn.BCELoss()
 
     def _parse_args(self, args, n_entity, n_relation):
@@ -54,7 +54,7 @@ class RippleNet(nn.Module):
             # [batch size, n_memory, dim]
             t_emb_list.append(self.entity_emb(memories_t[i]))
 
-        o_list = self._key_addressing(
+        o_list, item_embeddings = self._key_addressing(
             h_emb_list, r_emb_list, t_emb_list, item_embeddings
         )
         scores = self.predict(item_embeddings, o_list)
@@ -118,7 +118,7 @@ class RippleNet(nn.Module):
 
             item_embeddings = self._update_item_embedding(item_embeddings, o)
             o_list.append(o)
-        return o_list
+        return o_list, item_embeddings
 
     def _update_item_embedding(self, item_embeddings, o):
         if self.item_update_mode == "replace":
